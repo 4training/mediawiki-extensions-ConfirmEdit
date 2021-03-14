@@ -5,7 +5,7 @@
 	"captcha-edit": "To edit this page, please solve the following task below and enter the answer in the box ([[Special:Captcha/help|more info]]):",
 	"captcha-edit-fail": "Incorrect or missing CAPTCHA.",
 	"captcha-desc": "Provides CAPTCHA techniques to protect against spam and password-guessing",
-	"captcha-label": "CAPTCHA",
+	"captcha-label": "Testing your ability to think:",
 	"captcha-help": "Solution of the CAPTCHA.",
 	"captcha-info-help": "Description of the CAPTCHA.",
 	"captcha-id-label": "CAPTCHA ID",
