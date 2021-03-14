@@ -130,9 +130,9 @@ class SimpleCaptcha {
 			'html' =>
 				new OOUI\FieldLayout(
 					new OOUI\NumberInputWidget( [
-						'name' => 'wpCaptchaWord',
+						'name' => 'wpUberprufungWord',
 						'classes' => [ 'simplecaptcha-answer' ],
-						'id' => 'wpCaptchaWord',
+						'id' => 'wpUberprufungWord',
 						'autocomplete' => 'off',
 						// tab in before the edit textarea
 						'tabIndex' => $tabIndex
@@ -144,8 +144,8 @@ class SimpleCaptcha {
 					]
 				) .
 				new OOUI\HiddenInputWidget( [
-					'name' => 'wpCaptchaId',
-					'id' => 'wpCaptchaId',
+					'name' => 'wpUberprufungId',
+					'id' => 'wpUberprufungId',
 					'value' => $index
 				] ),
 			'modulestyles' => [
@@ -823,12 +823,12 @@ class SimpleCaptcha {
 		// FIXME: Stop using wgRequest in other parts of ConfirmEdit so we can
 		// stop having to duplicate code for it.
 		if ( $request->getVal( 'captchaid' ) ) {
-			$request->setVal( 'wpCaptchaId', $request->getVal( 'captchaid' ) );
-			$wgRequest->setVal( 'wpCaptchaId', $request->getVal( 'captchaid' ) );
+			$request->setVal( 'wpUberprufungId', $request->getVal( 'captchaid' ) );
+			$wgRequest->setVal( 'wpUberprufungId', $request->getVal( 'captchaid' ) );
 		}
 		if ( $request->getVal( 'captchaword' ) ) {
-			$request->setVal( 'wpCaptchaWord', $request->getVal( 'captchaword' ) );
-			$wgRequest->setVal( 'wpCaptchaWord', $request->getVal( 'captchaword' ) );
+			$request->setVal( 'wpUberprufungWord', $request->getVal( 'captchaword' ) );
+			$wgRequest->setVal( 'wpUberprufungWord', $request->getVal( 'captchaword' ) );
 		}
 		if ( $this->shouldCheck( $page, $newtext, $section, $context ) ) {
 			return $this->passCaptchaLimitedFromRequest( $wgRequest, $user );
@@ -987,8 +987,8 @@ class SimpleCaptcha {
 	 * @return array [ captcha ID, captcha solution ]
 	 */
 	protected function getCaptchaParamsFromRequest( WebRequest $request ) {
-		$index = $request->getVal( 'wpCaptchaId' );
-		$word = $request->getVal( 'wpCaptchaWord' );
+		$index = $request->getVal( 'wpUberprufungId' );
+		$word = $request->getVal( 'wpUberprufungWord' );
 		return [ $index, $word ];
 	}
 
@@ -1078,7 +1078,7 @@ class SimpleCaptcha {
 	 *
 	 * A random ID is used so legit users can make edits in multiple tabs or
 	 * windows without being unnecessarily hobbled by a serial order requirement.
-	 * Pass the returned id value into the edit form as wpCaptchaId.
+	 * Pass the returned id value into the edit form as wpUberprufungId.
 	 *
 	 * @param array $info data to store
 	 * @return string captcha ID key

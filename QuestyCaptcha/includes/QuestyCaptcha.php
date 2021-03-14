@@ -79,10 +79,10 @@ class QuestyCaptcha extends SimpleCaptcha {
 		}
 		$index = $this->storeCaptcha( $captcha );
 		return [
-			'html' => "<p><label for=\"wpCaptchaWord\">{$captcha['question']}</label> " .
+			'html' => "<p><label for=\"wpUberprufungWord\">{$captcha['question']}</label> " .
 				Html::element( 'input', [
-					'name' => 'wpCaptchaWord',
-					'id'   => 'wpCaptchaWord',
+					'name' => 'wpUberprufungWord',
+					'id'   => 'wpUberprufungWord',
 					'class' => 'mw-ui-input',
 					'required',
 					'autocomplete' => 'off',
@@ -91,8 +91,8 @@ class QuestyCaptcha extends SimpleCaptcha {
 				) . "</p>\n" .
 				Xml::element( 'input', [
 					'type'  => 'hidden',
-					'name'  => 'wpCaptchaId',
-					'id'    => 'wpCaptchaId',
+					'name'  => 'wpUberprufungId',
+					'id'    => 'wpUberprufungId',
 					'value' => $index ]
 				)
 		];
